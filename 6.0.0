@@ -1,0 +1,8 @@
++ @angular/platform-browser@12.2.7
+updated 1 package and audited 1397 packages in 26.199s
+
+88 packages are looking for funding
+  run `npm fund` for details
+
+found 29 moderate severity vulnerabilities
+  run `npm audit fix` to fix them, or `npm audit` for details

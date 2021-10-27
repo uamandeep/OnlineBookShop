@@ -1,0 +1,31 @@
+
+<mat-tab-group>
+    <mat-tab *ngFor="let category of categories"  [label]="category.label">
+            <div class="cardList" >
+                    <ng-container *ngFor="let book of getBooksByCategory(category.key)" style="color: aliceblue;">
+                            <mat-card class="cardListItem example-card" >
+                                    <mat-card-header>
+                                            <div mat-card-avatar class="example-header-image"></div>
+                                            <mat-card-title data-tilt style="text-align: center;">{{book.title}}</mat-card-title>
+                                    </mat-card-header>
+                                    <span data-tilt>
+                                    <img mat-card-image [src]="book.urlImage">
+
+                                    </span>
+                                    <mat-card-content>
+                                            <p class="description">
+                                                    {{book.description}}
+                                            </p>
+                                        <span fxLayoutAlign="center center" class="price">{{book.price | currency: 'INR': true}}</span>
+                                    </mat-card-content>
+                                    <mat-card-actions fxLayout="row" fxLayoutAlign="center center" *ngIf="!existBookInShoppingCart(book.key)">
+                                            <button fxFlex mat-flat-button color="primary" (click)="AddToCart(book)">Add Book</button>
+                                    </mat-card-actions>
+                                    <mat-card-actions fxLayout="row" fxLayoutAlign="center center" *ngIf="existBookInShoppingCart(book.key)">
+                                        <button fxFlex mat-flat-button color="warm" (click)="DeleteToCart(book)">Delete Book</button>
+                                </mat-card-actions>
+                        </mat-card> 
+                </ng-container>
+        </div>
+</mat-tab>
+</mat-tab-group>

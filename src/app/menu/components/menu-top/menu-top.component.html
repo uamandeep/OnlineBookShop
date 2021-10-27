@@ -1,0 +1,20 @@
+<mat-toolbar color="primary">
+    
+    <mat-toolbar-row>
+        <button mat-icon-button>
+            <mat-icon>menu</mat-icon>
+        </button>
+        <a mat-button [routerLink]= "'/'">Home</a>
+        <a mat-button [routerLink] = "'/books'">Books</a>
+        <a mat-button *ngIf="!user" [routerLink] = "'/login'">Login</a>
+        
+        <a mat-button *ngIf="user"  [matMenuTriggerFor]="Menu">{{user.name}}</a>
+        <mat-menu #Menu="matMenu">
+            <button mat-menu-item [routerLink]= "'/orders'">Orders</button>
+            <!-- <button mat-menu-item *ngIf="user" [routerLink]= "'/admin-books'">Admin books</button> -->
+            <button mat-menu-item (click)="logout()">Logout</button>
+        </mat-menu>
+        <a mat-button [routerLink] = "'/about'">About</a>
+        <a mat-button (click)="recapShopping()"  [routerLink] = "'/shopping-cart'"><span class="shopping-book">{{nbrShoppingBook}}</span><i class="material-icons"> add_shopping_cart</i></a>
+    </mat-toolbar-row>
+</mat-toolbar>

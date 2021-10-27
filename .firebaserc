@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "online-book-shop-c41ce": {
+      "hosting": {
+        "online-book-shop": [
+          "online-book-shop-c41ce"
+        ]
+      }
+    }
+  }
+}
